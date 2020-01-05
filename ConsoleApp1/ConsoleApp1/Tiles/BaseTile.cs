@@ -13,7 +13,7 @@ namespace ConsoleApp1.Tiles
 
         public virtual string TravelName { get { return Name; } }
 
-        protected List<Actions.Action> _actions = new List<Actions.Action> {
+        public List<Actions.Action> Actions { get; private set; } = new List<Actions.Action> {
             // Diagonals go first as they have more parts.
             new GoNorthEastAction(),
             new GoNorthWestAction(),
@@ -79,7 +79,7 @@ namespace ConsoleApp1.Tiles
             string input = Read();
             bool actionTaken = false;
 
-            foreach (Actions.Action action in _actions)
+            foreach (Actions.Action action in Actions)
             {
                 if (action.Condition(input, state))
                 {
@@ -139,8 +139,8 @@ namespace ConsoleApp1.Tiles
 
         protected void SetSearchAction(SearchAction action)
         {
-            int index = _actions.FindIndex(a => a.GetType() == typeof(SearchAction));
-            _actions[index] = action;
+            int index = Actions.FindIndex(a => a.GetType() == typeof(SearchAction));
+            Actions[index] = action;
         }
 
         private void ResetFlags(GameState state)

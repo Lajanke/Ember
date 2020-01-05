@@ -2,11 +2,11 @@
 {
     public class PickUpItemAction : Action
     {
-        InventoryItem _item;
+        public InventoryItem Item { get; private set; }
 
         public PickUpItemAction(InventoryItem item)
         {
-            _item = item;
+            Item = item;
         }
 
         public override bool Condition(string input, GameState state)
@@ -17,14 +17,14 @@
 
         public override void Run(string input, GameState state, TravelOptions travelOptions)
         {
-            state.Inventory.Items.Add(_item);
-            Write($"You pick up the {_item.ToString()}");
+            state.Inventory.Items.Add(Item);
+            Write($"You pick up the {Item.ToString()}");
         }
 
         private bool IsPickUp(string input) => IsOneOf(input, new[] { "pickup", "pick-up", "get" });
 
-        private bool IsItem(string input) => _item.ToString().ToLower() == input;
+        private bool IsItem(string input) => Item.ToString().ToLower() == input;
 
-        private bool HasItem(GameState state) => state.Inventory.Items.Contains(_item);
+        private bool HasItem(GameState state) => state.Inventory.Items.Contains(Item);
     }
 }

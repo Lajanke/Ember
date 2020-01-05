@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Actions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,5 +12,14 @@ namespace ConsoleApp1.Tiles.Woods1Tile
         public override string Name => "Wood";
 
         public override string TravelName => "is a wood";
+        
+        public Woods1Tile()
+        {
+            Actions.AddRange(new Actions.Action[]
+            {
+                new PickUpItemAction(InventoryItem.Amulet),
+                new PickUpItemAction(InventoryItem.Beer),
+            });
+        }
     }
 }

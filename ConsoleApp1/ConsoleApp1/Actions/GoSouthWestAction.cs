@@ -35,7 +35,7 @@
                 return;
             }
 
-            state.PlayerLocation = new Vector2Int(state.PlayerLocation.X + 1, state.PlayerLocation.Y - 1);
+            state.PlayerLocation = new Vector2Int(state.PlayerLocation.X - 1, state.PlayerLocation.Y + 1);
             state.Travelling = true;
             Write("You travel [SouthWest]");
         }

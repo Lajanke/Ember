@@ -2,8 +2,7 @@
 {
     public enum InventoryItem
     {
-        Hammer,
-        Nails,
-        Wood
+        Amulet,
+        Beer,
     }
 }
