@@ -21,6 +21,7 @@ namespace ConsoleApp1
             Tile tile = _tiles[_state.PlayerLocation.X, _state.PlayerLocation.Y];
             TravelOptions travelOptions = new TravelOptions(_tiles, _state.PlayerLocation);
             tile.Turn(_state, travelOptions);
+            CatTravel(travelOptions);
 
             if (_state.GameWon)
             {
@@ -50,6 +51,72 @@ namespace ConsoleApp1
             {
                 Tile tile = (Tile)Activator.CreateInstance(type);
                 _tiles[tile.Location.X, tile.Location.Y] = tile;
+            }
+        }
+
+        private void CatTravel(TravelOptions travelOptions)
+        {
+            Random random = new Random();
+
+            Direction randomCatDirection = (Direction)random.Next(0, 8);
+
+            switch (randomCatDirection)
+            {
+                case Direction.North:
+                    if (travelOptions.North != null)
+                    {
+                        _state.CatLocation = travelOptions.North.Location;
+                    }
+                    break;
+
+                case Direction.East:
+                    if (travelOptions.East != null)
+                    {
+                        _state.CatLocation = travelOptions.East.Location;
+                    }
+                    break;
+
+                case Direction.South:
+                    if (travelOptions.South != null)
+                    {
+                        _state.CatLocation = travelOptions.South.Location;
+                    }
+                    break;
+
+                case Direction.West:
+                    if (travelOptions.West != null)
+                    {
+                        _state.CatLocation = travelOptions.West.Location;
+                    }
+                    break;
+               
+                case Direction.NorthEast:
+                    if (travelOptions.NorthEast != null)
+                    {
+                        _state.CatLocation = travelOptions.NorthEast.Location;
+                    }
+                    break;
+
+                case Direction.SouthEast:
+                    if (travelOptions.SouthEast != null)
+                    {
+                        _state.CatLocation = travelOptions.SouthEast.Location;
+                    }
+                    break;
+
+                case Direction.SouthWest:
+                    if (travelOptions.SouthWest != null)
+                    {
+                        _state.CatLocation = travelOptions.SouthWest.Location;
+                    }
+                    break;
+
+                case Direction.NorthWest:
+                    if (travelOptions.NorthWest != null)
+                    {
+                        _state.CatLocation = travelOptions.NorthWest.Location;
+                    }
+                    break;
             }
         }
 

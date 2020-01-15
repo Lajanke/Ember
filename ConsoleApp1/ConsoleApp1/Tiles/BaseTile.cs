@@ -110,7 +110,29 @@ namespace ConsoleApp1.Tiles
 
             builder.Append(TravelText(travelOptions));
 
+            builder.Append(CatText(state));
+
             Write(builder.ToString());
+        }
+
+        protected string CatText(GameState state)
+        {
+            if (state.PlayerLocation.Equals(state.CatLocation))
+            {
+                Random random = new Random();
+
+                int randomNumber = random.Next(0, 5);
+
+                switch (randomNumber)
+                {
+                    case 0: return " A cat is sitting idly by, staring at you.";
+                    case 1: return " A cat is licking it's ass, staring at you.";
+                    case 2: return " A cat is languishing, staring at you.";
+                    case 3: return " A cat is sleeping nearby, staring at you.";
+                    case 4: return " A cat is taking a dump, staring at you.";
+                }           
+            }
+            return null;
         }
 
         protected string TravelText(TravelOptions travelOptions)
