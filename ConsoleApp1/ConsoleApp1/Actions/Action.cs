@@ -11,6 +11,8 @@ namespace ConsoleApp1.Actions
 
         protected bool IsOneOf(string input, string[] options) => options.Contains(input);
 
+        protected bool ContainsOneOf(string input, string[] options) => options.Any((string option) => input.Contains(option));
+
         protected void Write(params string[] lines)
         {
             foreach (string line in lines)

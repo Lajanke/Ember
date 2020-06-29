@@ -22,6 +22,7 @@ namespace ConsoleApp1.Tiles
             new HelpAction(),
             new InventoryAction(),
             new SearchAction(),
+            new InspectAction(),
             new GoNorthAction(),
             new GoEastAction(),
             new GoSouthAction(),

@@ -13,7 +13,7 @@
                 "[Get] - Pick up an item. E.g. (get thing)",
                 "[Use] - Use an item. E.g. (use thing)",
                 "[Inspect] - Inspect something specific in your current location. E.g. (inspect thing)",
-                "[Inventory] - Check the items in your inventory. E.g. (search)"
+                "[Inventory] - Check the items in your inventory. E.g. (inventory)"
             );
         }
     }

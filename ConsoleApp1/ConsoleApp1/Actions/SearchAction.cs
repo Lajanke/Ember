@@ -12,7 +12,7 @@ namespace ConsoleApp1.Actions
             Write(SearchText(state, travelOptions));
         }
 
-        public virtual string SearchText(GameState state, TravelOptions travelOptions)
+        private string SearchText(GameState state, TravelOptions travelOptions)
         {
             bool foundItems = false;
             StringBuilder builder = new StringBuilder("You look around and see");
